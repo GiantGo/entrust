@@ -27,27 +27,27 @@ trait EntrustUserTrait
         }
         else return $this->roles()->get();
     }
-    public function save(array $options = [])
-    {   //both inserts and updates
-        if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(Config::get('entrust.role_user_table'))->flush();
-        }
-        return parent::save($options);
-    }
-    public function delete(array $options = [])
-    {   //soft or hard
-        parent::delete($options);
-        if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(Config::get('entrust.role_user_table'))->flush();
-        }
-    }
-    public function restore()
-    {   //soft delete undo's
-        parent::restore();
-        if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(Config::get('entrust.role_user_table'))->flush();
-        }
-    }
+//    public function save(array $options = [])
+//    {   //both inserts and updates
+//        if(Cache::getStore() instanceof TaggableStore) {
+//            Cache::tags(Config::get('entrust.role_user_table'))->flush();
+//        }
+//        return parent::save($options);
+//    }
+//    public function delete(array $options = [])
+//    {   //soft or hard
+//        parent::delete($options);
+//        if(Cache::getStore() instanceof TaggableStore) {
+//            Cache::tags(Config::get('entrust.role_user_table'))->flush();
+//        }
+//    }
+//    public function restore()
+//    {   //soft delete undo's
+//        parent::restore();
+//        if(Cache::getStore() instanceof TaggableStore) {
+//            Cache::tags(Config::get('entrust.role_user_table'))->flush();
+//        }
+//    }
 
     /**
      * Many-to-Many relations with Role.
