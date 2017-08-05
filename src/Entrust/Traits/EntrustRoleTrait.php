@@ -26,38 +26,38 @@ trait EntrustRoleTrait
         } else return $this->perms()->get();
     }
 
-    public function save(array $options = [])
-    {   //both inserts and updates
-        if (!parent::save($options)) {
-            return false;
-        }
-        if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(Config::get('entrust.permission_role_table'))->flush();
-        }
-        return true;
-    }
-
-    public function delete(array $options = [])
-    {   //soft or hard
-        if (!parent::delete($options)) {
-            return false;
-        }
-        if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(Config::get('entrust.permission_role_table'))->flush();
-        }
-        return true;
-    }
-
-    public function restore()
-    {   //soft delete undo's
-        if (!parent::restore()) {
-            return false;
-        }
-        if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(Config::get('entrust.permission_role_table'))->flush();
-        }
-        return true;
-    }
+//    public function save(array $options = [])
+//    {   //both inserts and updates
+//        if (!parent::save($options)) {
+//            return false;
+//        }
+//        if (Cache::getStore() instanceof TaggableStore) {
+//            Cache::tags(Config::get('entrust.permission_role_table'))->flush();
+//        }
+//        return true;
+//    }
+//
+//    public function delete(array $options = [])
+//    {   //soft or hard
+//        if (!parent::delete($options)) {
+//            return false;
+//        }
+//        if (Cache::getStore() instanceof TaggableStore) {
+//            Cache::tags(Config::get('entrust.permission_role_table'))->flush();
+//        }
+//        return true;
+//    }
+//
+//    public function restore()
+//    {   //soft delete undo's
+//        if (!parent::restore()) {
+//            return false;
+//        }
+//        if (Cache::getStore() instanceof TaggableStore) {
+//            Cache::tags(Config::get('entrust.permission_role_table'))->flush();
+//        }
+//        return true;
+//    }
 
     /**
      * Many-to-Many relations with the user model.
