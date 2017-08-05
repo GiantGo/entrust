@@ -28,12 +28,12 @@ class EntrustServiceProvider extends ServiceProvider
     {
         // Publish config files
         $this->publishes([
-            __DIR__.'/../config/config.php' => app()->basePath() . '/config/entrust.php',
+            __DIR__ . '/../config/config.php' => app()->basePath() . '/config/entrust.php',
         ]);
 
         // Register commands
         $this->commands('command.entrust.migration');
-
+        
         // Register blade directives
         $this->bladeDirectives();
     }
@@ -99,7 +99,7 @@ class EntrustServiceProvider extends ServiceProvider
         $this->app->bind('entrust', function ($app) {
             return new Entrust($app);
         });
-
+        
         $this->app->alias('entrust', 'Zizaco\Entrust\Entrust');
     }
 
@@ -123,7 +123,7 @@ class EntrustServiceProvider extends ServiceProvider
     private function mergeConfig()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/config.php', 'entrust'
+            __DIR__ . '/../config/config.php', 'entrust'
         );
     }
 
